@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_above="@+id/register_button">
+
+    <LinearLayout
+        android:id="@+id/signupscreen"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputlayoutName">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Full Name"
+                android:ems="10"
+                android:id="@+id/username"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputlayoutdob">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Date Of Birth"
+                android:ems="10"
+                android:id="@+id/dob"
+                android:maxLength="10"
+                android:layout_marginTop="5dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+            <TextView
+                android:text="Vaid Email Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/emailaddress"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"/>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputlayoutbloodgroup">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Blood Group"
+                android:maxLength="5"
+                android:ems="10"
+                android:id="@+id/bloodgroup"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputlayoutconatctnumber">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Contact Number"
+                android:ems="10"
+                android:maxLength="10"
+                android:id="@+id/contactnumber"
+                android:layout_marginTop="5dp"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputlayoutaddress">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Vaid Address"
+                android:ems="10"
+                android:id="@+id/address"
+                android:layout_marginTop="5dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:text="@string/register"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/register_button"
+        />
+
+
+
+
+
+</RelativeLayout>

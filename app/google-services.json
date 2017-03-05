@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "263105683211",
+    "firebase_url": "https://bloodfinder-a9e59.firebaseio.com",
+    "project_id": "bloodfinder-a9e59",
+    "storage_bucket": "bloodfinder-a9e59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263105683211:android:8b2a51fea42a8020",
+        "android_client_info": {
+          "package_name": "com.example.rajkumar.bloodfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263105683211-4ahsikcct57tpc5p9677kgsc31b9l2pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbi44o3GRTdoEdGFNw1rfege-D2Cc2DR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263105683211:android:8d0ea598f47c1a03",
+        "android_client_info": {
+          "package_name": "ccorp.android.bloodfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263105683211-4ahsikcct57tpc5p9677kgsc31b9l2pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbi44o3GRTdoEdGFNw1rfege-D2Cc2DR0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
