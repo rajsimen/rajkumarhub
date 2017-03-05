@@ -125,6 +125,7 @@ public class BeaDonorActivity extends Fragment {
         addressTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutaddress);
 
         userName=(EditText)view.findViewById(R.id.username);
+
         emailId=(TextView) view.findViewById(R.id.emailaddress);
         emailId.setText(email);
         dob=(EditText)view.findViewById(R.id.dob);
