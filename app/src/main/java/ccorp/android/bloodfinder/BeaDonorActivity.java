@@ -11,11 +11,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,30 +40,26 @@ public class BeaDonorActivity extends Fragment {
 
 
     View view;
-    private Button register,updateregister;
-    private EditText userName,userEmailAdd,dob,bloodGroup,contactNo,address;
-    private TextInputLayout userNameTextInputLayout,userEmailAddTextInputLayout,dobTextInputLayout,bloodGroupTextInputLayout,
-            contactNoTextInputLayout,addressTextInputLayout;
-    private TextView emailId;
+    private Button register;
+    private EditText userName,dob,bloodGroup,contactNo,address;
+       private TextView emailId;
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-    private FirebaseAuth.AuthStateListener authListener;
-    private FirebaseAuth auth;
+
     private String userId;
-    private Context context;
-    SharedPreferences sPref;
+
     String email="proxy@gmail.com";
-    private LayoutInflater mInflater;
-    private ViewGroup mContainer;
-    private Bundle mSavedInstanceState;
+
+    private ScrollView scrollView;
+    private ImageView awesomeImage;
+    private ProgressBar progressBar;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       context = getActivity();
-        auth = FirebaseAuth.getInstance();
+
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         email=user.getEmail();
@@ -84,45 +84,19 @@ public class BeaDonorActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        view=inflater.inflate(R.layout.bedonor,container,false);
+        getwidgets1();
 
 
-        mInflater=inflater;
-        mContainer=container;
-        mSavedInstanceState=savedInstanceState;
-
-        callLayout(inflater,container,R.layout.bedonor,0);
 
         return view;
 
     }
 
-    protected void callLayout(LayoutInflater inflater, ViewGroup container,int layout,int position){
-        if (position==0){
-        view=inflater.inflate(layout,container,false);
-        getwidgets1();} else{
-            view=inflater.inflate(layout,container,false);
-        }
-    }
 
-    protected  void getwidgets2(){
-
-        updateregister=(Button)view.findViewById(R.id.updateregister);
-        updateregister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"Functionality Disable",Toast.LENGTH_LONG).show();
-            }
-        });
-    }
     protected void getwidgets1(){
 
         register=(Button)view.findViewById(R.id.register_button);
-        userNameTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutName);
-
-        dobTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutdob);
-        bloodGroupTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutbloodgroup);
-        contactNoTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutconatctnumber);
-        addressTextInputLayout=(TextInputLayout)view.findViewById(R.id.inputlayoutaddress);
 
         userName=(EditText)view.findViewById(R.id.username);
 
@@ -132,9 +106,15 @@ public class BeaDonorActivity extends Fragment {
         bloodGroup=(EditText)view.findViewById(R.id.bloodgroup);
         contactNo=(EditText)view.findViewById(R.id.contactnumber);
         address=(EditText)view.findViewById(R.id.address);
+        scrollView=(ScrollView)view.findViewById(R.id.scroll1);
+        awesomeImage=(ImageView)view.findViewById(R.id.awesomeImage);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                progressBar.setVisibility(View.VISIBLE);
                 validate();
             }
         });
@@ -278,12 +258,14 @@ public class BeaDonorActivity extends Fragment {
 
         mFirebaseDatabase.child(userId).setValue(beADonor);
 
-        if(!userId.isEmpty()){
-            callLayout(mInflater,mContainer,R.layout.bedonor1,1);}
+        if(!userId.isEmpty()) {
 
+            scrollView.setVisibility(View.INVISIBLE);
+            awesomeImage.setVisibility(View.VISIBLE);
+            register.setText("Update Info");
+        }
+       progressBar.setVisibility(View.GONE);
 
-
-        //addUserChangeListener();
     }
 
 

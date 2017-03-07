@@ -126,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     FirebaseUser user = auth.getCurrentUser();
+
+                                    // it sign In if Registered EMail is verified
                                     if (user.isEmailVerified()) {
                                         Intent callMainScreen = new Intent(LoginActivity.this, HomeScreenActivity.class);
                                         callMainScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

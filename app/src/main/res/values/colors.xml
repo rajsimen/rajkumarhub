@@ -19,4 +19,5 @@
     <color name="btn_logut_bg">#ff6861</color>
     <color name="pageNotSelected">#ef5143</color>
     <color name="pageSelected">#cc0202</color>
+    <color name="bg_donorlist">#E0E0E0</color>
 </resources>

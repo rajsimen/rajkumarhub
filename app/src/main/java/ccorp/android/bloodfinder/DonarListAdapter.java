@@ -22,6 +22,9 @@ private List<Donor> donorList;
 
         public MyViewHolder(View view){
             super(view);
+            donorname=(TextView) view.findViewById(R.id.name);
+            ageandgroup=(TextView)view.findViewById(R.id.age);
+            phone=(TextView)view.findViewById(R.id.phone);
         }
 
     }
@@ -46,7 +49,7 @@ private List<Donor> donorList;
         Donor donor=donorList.get(position);
         holder.donorname.setText(donor.getName());
         holder.ageandgroup.setText(donor.dob+" - "+donor.getBloodGroup());
-        holder.donoremail.setText(donor.getEmail());
+        //holder.donoremail.setText(donor.getEmail());
         holder.phone.setText(donor.getMobileNo());
 
 

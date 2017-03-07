@@ -32,9 +32,10 @@ public class DonorListFragment  extends Fragment{
     private View view;
     private RecyclerView donorListView;
     private DonarListAdapter donorListAdapter;
-    List<Donor> donorList=new ArrayList<>();
+    List<Donor> donorList=new ArrayList<Donor>();
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+
 
     @Override
     public void onAttach(Context context) {
@@ -50,6 +51,7 @@ public class DonorListFragment  extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.v("Values from Fragment","Passed1");
+        getData();
     }
 
     @Nullable
@@ -58,7 +60,7 @@ public class DonorListFragment  extends Fragment{
 
         view=inflater.inflate(R.layout.search_screen,container,false);
 
-        //getwidget();
+        getwidget();
         return view;
     }
 
@@ -66,6 +68,7 @@ public class DonorListFragment  extends Fragment{
     protected void getData(){
         firebaseDatabase= FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference().child("donors");
+        donorList.clear();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,7 +81,8 @@ public class DonorListFragment  extends Fragment{
                     Log.v("Values from FDatabase",donor.getMobileNo());
                     Log.v("Size of List",String.valueOf(donorList.size()));
                 }
-                //donorListAdapter.notifyDataSetChanged();
+                donorListAdapter.notifyDataSetChanged();
+                //getwidget();
 
 
             }
@@ -97,6 +101,7 @@ public class DonorListFragment  extends Fragment{
         getData();
         Log.v("Size of List:!",String.valueOf(donorList.size()));
        donorListView=(RecyclerView)view.findViewById(R.id.my_recycler_view);
+        donorListView.setHasFixedSize(true);
         donorListAdapter=new DonarListAdapter(donorList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         donorListView.setLayoutManager(mLayoutManager);
